@@ -30,6 +30,16 @@ body {
     z-index: 1;
 }
 
+.navbar {
+    transition: top 0.4s ease, opacity 0.4s ease;
+    opacity: 0;
+}
+
+.navbar.visible {
+    top: 0;
+    opacity: 1;
+}
+
 .hero .container {
     position: relative;
     z-index: 2;
