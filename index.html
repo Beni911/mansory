@@ -9,6 +9,8 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32-removebg-preview.png">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -22,7 +24,7 @@
                     <a class="nav-link text-white text-uppercase" href="#">Modells</a>
                     <a class="nav-link text-white text-uppercase" href="#">Cars for Sale</a>
                     <a class="nav-link text-white text-uppercase" href="#">Rims</a>
-                    <a class="nav-link text-white text-uppercase" href="#">Boutique</a>
+                    <a class="nav-link text-white text-uppercase" href="#about">About</a>
                 </div>
             </div>
             <a class="navbar-brand mx-auto fw-bold text-white" href="#" style="letter-spacing: 3px;">
@@ -41,12 +43,36 @@
                 data-aos-duration="1500" data-aos-delay="300" />
         </div>
     </header>
+    <section id="about" class="py-5 bg-dark text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6" data-aos="fade-right">
+                    <h2 class="mb-4 text-uppercase" style="letter-spacing: 2px;">About MANSORY</h2>
+                    <p style="font-size: 1.05rem; line-height: 1.8;">
+                        MANSORY stands at the pinnacle of automotive refinement, combining cutting-edge design with
+                        unmatched craftsmanship.
+                        From exotic supercars to elite SUVs, every vehicle we touch becomes a bold statement of
+                        individuality and prestige.
+                    </p>
+                    <p style="font-size: 1.05rem; line-height: 1.8;">
+                        With over 30 years of experience, our passion for perfection is reflected in every carbon fiber
+                        detail, bespoke interior, and power upgrade.
+                        MANSORY isn't just tuning – it's transformation.
+                    </p>
+                </div>
+                <div class="col-md-6" data-aos="fade-left">
+                    <img src="https://static0.topspeedimages.com/wordpress/wp-content/uploads/jpg/202110/2021-audi-rs7-by-mansory-7.jpg"
+                        alt="Mansory Workshop" id="audi" class="img-fluid rounded-5 shadow" />
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="py-5">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Featured Models</h2>
+            <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Featured Models</h2>
             <div class="row g-4">
                 <div class="col-md-4" data-aos="zoom-in">
-                    <div class="card car-card">
+                    <div id="height" class="card car-card">
                         <img src="https://www.mansory.com/cdn-cgi/image/format=avif,quality=90/https://cdn.prod.website-files.com/661d6e0d2e84ef511db18f17/6818c549908c7de7cd4ffdf2_Venatus-Hero_image-001.webp"
                             class="card-img-top" alt="Lamborghini Urus">
                         <div class="card-body">
@@ -56,7 +82,7 @@
                     </div>
                 </div>
                 <div class="col-md-4" data-aos="zoom-in">
-                    <div class="card car-card">
+                    <div id="height" class="card car-card">
                         <img src="https://www.mansory.com/cdn-cgi/image/format=avif,quality=90/https://cdn.prod.website-files.com/661d6e0d2e84ef511db18f17/6818c37be4384d8fa08e58ec_Product%2520overview%2520for%2520DB11%2520Cyrus-Hero_image-001.webp"
                             class="card-img-top" alt="Aston Martin DB11">
                         <div class="card-body">
@@ -66,7 +92,7 @@
                     </div>
                 </div>
                 <div class="col-md-4" data-aos="zoom-in">
-                    <div class="card car-card">
+                    <div id="height" class="card car-card">
                         <img src="https://www.mansory.com/cdn-cgi/image/format=avif,quality=90/https://cdn.prod.website-files.com/661d6e0d2e84ef511db18f17/6818c1d69c51acec9c187a33_Mercedes-Benz%2520E63%2520S%2520%2528W213%2520LCI%2529-Hero_image-001.webp"
                             class="card-img-top" alt="Brabus E-Class">
                         <div class="card-body">
