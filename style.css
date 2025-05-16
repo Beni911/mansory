@@ -19,6 +19,33 @@ body {
     text-align: center;
 }
 
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+#timeline {
+    overflow-x: hidden;
+}
+
+.timeline-item {
+    max-width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    margin-bottom: 2rem;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+}
+
+.card:hover .badge {
+    background-color: #ffc107 !important;
+    color: #000 !important;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
 .hero::before {
     content: "";
     position: absolute;
@@ -29,36 +56,38 @@ body {
     background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.8) 100%);
     z-index: 1;
 }
- .timeline-item {
-            position: relative;
-            padding-left: 30px;
-            margin-bottom: 30px;
-        }
-        
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 5px;
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #d4af37, #f9d423);
-        }
-        
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            left: 7px;
-            top: 20px;
-            bottom: -30px;
-            width: 1px;
-            background: rgba(255, 255, 255, 0.2);
-        }
-        
-        .timeline-item:last-child::after {
-            display: none;
-        }
+
+.timeline-item {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 30px;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #d4af37, #f9d423);
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 20px;
+    bottom: -30px;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.timeline-item:last-child::after {
+    display: none;
+}
+
 .navbar {
     transition: top 0.4s ease, opacity 0.4s ease;
     opacity: 0;
