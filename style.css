@@ -34,7 +34,12 @@ body {
     box-sizing: border-box;
     margin-bottom: 2rem;
 }
-
+header {
+    padding-left: 300px;
+}
+#about {
+    padding-left: 300px;
+}
 .card:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
