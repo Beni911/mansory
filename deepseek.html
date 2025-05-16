@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MANSORY | Automotive Luxury Redefined</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            scroll-behavior: smooth;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), 
+                        url('https://images.unsplash.com/photo-1593941707882-a0bbbfa7f214?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-logo {
+            animation: float 6s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3));
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .car-card {
+            transition: all 0.4s ease;
+            background: linear-gradient(145deg, #111111, #1a1a1a);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            border-radius: 12px;
+        }
+        
+        .car-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+        
+        .car-card img {
+            transition: transform 0.5s ease;
+        }
+        
+        .car-card:hover img {
+            transform: scale(1.05);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #ffffff;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .navbar {
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        
+        .navbar.scrolled {
+            background-color: rgba(0, 0, 0, 0.95);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            bottom: -10px;
+            left: 25%;
+            background: linear-gradient(90deg, transparent, #ffffff, transparent);
+        }
+        
+        .stats-item {
+            border-left: 3px solid #ffffff;
+            padding-left: 15px;
+        }
+        
+        .contact-form input, 
+        .contact-form textarea {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-form input:focus, 
+        .contact-form textarea:focus {
+            background-color: rgba(255, 255, 255, 0.15);
+            border-color: white;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+        }
+        
+        .btn-gold {
+            background: linear-gradient(45deg, #d4af37, #f9d423);
+            color: #000;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-20px);}
+            60% {transform: translateY(-10px);}
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #d4af37, #f9d423);
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 20px;
+            bottom: -30px;
+            width: 1px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .timeline-item:last-child::after {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar fixed top-0 left-0 right-0 z-50 py-4 px-6 lg:px-12">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="#" class="text-2xl font-bold text-white tracking-wider">
+                    <span class="text-xl">—</span> MANSORY <span class="text-xl">—</span>
+                </a>
+            </div>
+            
+            <div class="hidden lg:flex space-x-8">
+                <a href="#models" class="nav-link text-white uppercase text-sm font-semibold tracking-wider">Models</a>
+                <a href="#gallery" class="nav-link text-white uppercase text-sm font-semibold tracking-wider">Gallery</a>
+                <a href="#about" class="nav-link text-white uppercase text-sm font-semibold tracking-wider">About</a>
+                <a href="#timeline" class="nav-link text-white uppercase text-sm font-semibold tracking-wider">History</a>
+                <a href="#contact" class="nav-link text-white uppercase text-sm font-semibold tracking-wider">Contact</a>
+            </div>
+            
+            <div class="hidden lg:flex items-center space-x-4">
+                <a href="#" class="text-white hover:text-gray-300 transition">
+                    <i class="fab fa-instagram text-lg"></i>
+                </a>
+                <a href="#" class="text-white hover:text-gray-300 transition">
+                    <i class="fab fa-youtube text-lg"></i>
+                </a>
+                <a href="#" class="text-white hover:text-gray-300 transition">
+                    <i class="fab fa-facebook-f text-lg"></i>
+                </a>
+            </div>
+            
+            <button class="lg:hidden text-white focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container mx-auto text-center px-4">
+            <img src="https://www.mansory.com/cdn-cgi/image/format=avif,quality=90/https://cdn.prod.website-files.com/661d6e0d2e84ef511db18f17/661d6e0d2e84ef511db18f3e_Mansory-Logo-2023.png" 
+                 alt="MANSORY Logo" class="hero-logo w-full max-w-2xl mx-auto">
+            <h1 class="text-4xl md:text-6xl font-bold mt-8 mb-6 uppercase tracking-wider font-cinzel">Automotive Luxury Redefined</h1>
+            <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-10">Where performance meets perfection in every detail</p>
+            <a href="#models" class="btn-gold px-8 py-3 rounded-full inline-block uppercase font-semibold tracking-wider">Explore Models</a>
+            
+            <div class="scroll-indicator">
+                <i class="fas fa-chevron-down text-white text-2xl animate-bounce"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 bg-black">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+                <div class="stats-item">
+                    <div class="text-4xl font-bold text-white mb-2">30+</div>
+                    <div class="text-gray-400 uppercase text-sm tracking-wider">Years of Excellence</div>
+                </div>
+                <div class="stats-item">
+                    <div class="text-4xl font-bold text-white mb-2">500+</div>
+                    <div class="text-gray-400 uppercase text-sm tracking-wider">Custom Projects</div>
+                </div>
+                <div class="stats-item">
+                    <div class="text-4xl font-bold text-white mb-2">100+</div>
+                    <div class="text-gray-400 uppercase text-sm tracking-wider">Global Awards</div>
+                </div>
+                <div class="stats-item">
+                    <div class="text-4xl font-bold text-white mb-2">40+</div>
+                    <div class="text-gray-400 uppercase text-sm tracking-wider">Countries Served</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Models -->
+    <section id="models" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-3xl md:text-4xl font-bold text-center mb-16 uppercase tracking-wider font-cinzel">Signature Models</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Model 1 -->
+                <div class="car-card rounded-xl overflow-hidden">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://www.mansory.com/cdn-cgi/image/format=avif,quality=90/https://cdn.prod.website-files.com/661d6e0d2e84ef511db18f17/6818c549908c7de7cd4ffdf2_Venatus-Hero_image-001.webp" 
+                             alt="Lamborghini Urus Venatus" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80"></div>
+                        <div class="absolute bottom-0 left-0 p-6">
+                            <h3 class="text-2xl font-bold text-white mb-2">Lamborghini Urus Venatus</h3>
+                            <p class="text-gray-300">Starting at $350,000</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-300 mb-4">The ultimate expression of power and luxury, with enhanced aerodynamics and bespoke carbon fiber elements.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex space-x-2">
+                                <span class="text-xs bg-gray-800 text-gray-300 px-2 py-1 rounded">V8 Twin-Turbo</span>
+                                <span class="text-xs bg-gray-800 text-gray-300 px-2 py-1 rounded">800 HP</span>
+                                <span class="text-xs bg-gray-800 text-gray-300 px-2 py-1 rounded">0-60 in 3.2s</span>
+                            </div>
+                            <a href="#" class="text-white hover:text-gray-300 transition">
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Model 2 -->
+                <div class="car-card rounded-xl overflow-hidden">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://www.mansory.com/cdn-cgi/image/format=avif,quality=90/https://cdn.prod.website-files.com/661d6e0d2e84ef511db18f17/6818c37be4384d8fa08e58ec_Product%2520overview%2520for%2520DB11%2520Cyrus-Hero_image-001.webp" 
+                             alt="Aston Martin DB11 Cyrus" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80"></div>
+                        <div class="absolute bottom-0 left-0 p-6">
+                            <h3 class="text-2xl font-bold text-white mb-2">Aston Martin DB11 Cyrus</h3>
+                            <p class="text-gray-300">Starting at $320,000</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-300 mb-4">British elegance meets German engineering in this masterpiece of automotive design.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex space-x-2">
+                                <span class="text-xs bg-gray-800 text-gray-300 px-2 py-1 rounded">V12</span>
+                                <span class="text-xs bg-gray-800 text-gray-300 px-2 py-1 rounded">750 HP</span>
+                                <span class="text-xs bg-gray-800 text-gray-300 px-2 py-1 rounded">0-60 in 3.4s</span>
+                            </div>
+                            <a href="#" class="text-white hover:text-gray-300 transition">
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Model 3 -->
+                <div class="car-card rounded-xl overflow-hidden">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://www.mansory.com/cdn-cgi/image/format=avif,quality=90/https://cdn.prod.website-files.com/661d6e0d2e84ef511db18f17/6818c1d69c51acec9c187a33_Mercedes-Benz%2520E63%2520S%2520%2528W213%2520LCI%2529-Hero_image-001.webp" 
+                             alt="Brabus E-Class 63S" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80"></div>
+                        <div class="absolute bottom-0 left-0 p-6">
+                            <h3 class="text-2xl font-bold text-white mb-2">Brabus E-Class 63S</h3>
+                            <p class="text-gray-300">Starting at $280,000</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-300 mb-4">The ultimate business sedan with supercar performance and bespoke luxury.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex space-x-2">
+                                <span class="text-xs bg-gray-800 text-gray-300 px-2 py-1 rounded">V8 Biturbo</span>
+                                <span class="text-xs bg-gray-800 text-gray-300 px-2 py-1 rounded">700 HP</span>
+                                <span class="text-xs bg-gray-800 text-gray-300 px-2 py-1 rounded">0-60 in 3.5s</span>
+                            </div>
+                            <a href="#" class="text-white hover:text-gray-300 transition">
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block border border-white text-white px-8 py-3 rounded-full uppercase font-semibold tracking-wider hover:bg-white hover:text-black transition">View All Models</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Showcase -->
+    <section class="py-16 bg-black">
+        <div class="container mx-auto px-4">
+            <div class="video-container rounded-xl overflow-hidden shadow-2xl">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0&mute=1&controls=1&showinfo=0&rel=0" 
+                        frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=2070&auto=format&fit=crop" 
+                         alt="MANSORY Workshop" class="w-full rounded-xl shadow-2xl">
+                </div>
+                <div class="lg:w-1/2">
+                    <h2 class="section-title text-3xl md:text-4xl font-bold mb-8 uppercase tracking-wider font-cinzel">About MANSORY</h2>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Founded in 1989, MANSORY has established itself as the premier name in automotive refinement and customization. 
+                        Our philosophy is simple: take the world's finest automobiles and elevate them to unprecedented levels of performance and luxury.
+                    </p>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Each MANSORY creation is a unique masterpiece, handcrafted by our team of expert engineers and designers. 
+                        From carbon fiber body kits to bespoke interiors and performance upgrades, we leave no detail untouched.
+                    </p>
+                    <p class="text-gray-300 mb-8 leading-relaxed">
+                        With headquarters in Germany and showrooms worldwide, MANSORY represents the pinnacle of automotive customization 
+                        for discerning clients who demand nothing but the best.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="btn-gold px-6 py-2 rounded-full uppercase text-sm font-semibold tracking-wider">Our Story</a>
+                        <a href="#" class="border border-white text-white px-6 py-2 rounded-full uppercase text-sm font-semibold tracking-wider hover:bg-white hover:text-black transition">Our Team</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-16 bg-black">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-3xl md:text-4xl font-bold text-center mb-16 uppercase tracking-wider font-cinzel">Gallery</h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="gallery-item overflow-hidden rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1494972308805-463bc619d34e?q=80&w=2073&auto=format&fit=crop" 
+                         alt="MANSORY Car" class="w-full h-64 object-cover hover:scale-105 transition duration-500">
+                </div>
+                <div class="gallery-item overflow-hidden rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070&auto=format&fit=crop" 
+                         alt="MANSORY Car" class="w-full h-64 object-cover hover:scale-105 transition duration-500">
+                </div>
+                <div class="gallery-item overflow-hidden rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?q=80&w=2070&auto=format&fit=crop" 
+                         alt="MANSORY Car" class="w-full h-64 object-cover hover:scale-105 transition duration-500">
+                </div>
+                <div class="gallery-item overflow-hidden rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=2070&auto=format&fit=crop" 
+                         alt="MANSORY Car" class="w-full h-64 object-cover hover:scale-105 transition duration-500">
+                </div>
+                <div class="gallery-item overflow-hidden rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1504215680853-026ed2a45def?q=80&w=1974&auto=format&fit=crop" 
+                         alt="MANSORY Car" class="w-full h-64 object-cover hover:scale-105 transition duration-500">
+                </div>
+                <div class="gallery-item overflow-hidden rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1549317661-bd32ae8fc4b3?q=80&w=2070&auto=format&fit=crop" 
+                         alt="MANSORY Car" class="w-full h-64 object-cover hover:scale-105 transition duration-500">
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block border border-white text-white px-8 py-3 rounded-full uppercase font-semibold tracking-wider hover:bg-white hover:text-black transition">View Full Gallery</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-3xl md:text-4xl font-bold text-center mb-16 uppercase tracking-wider font-cinzel">Our History</h2>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="timeline-item">
+                    <h3 class="text-xl font-bold text-white mb-2">1989 - Foundation</h3>
+                    <p class="text-gray-300">MANSORY is founded in Brand, Germany, specializing in high-end automotive customization.</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <h3 class="text-xl font-bold text-white mb-2">1996 - First Major Project</h3>
+                    <p class="text-gray-300">Completion of our first full vehicle customization for a private client, establishing our reputation for excellence.</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <h3 class="text-xl font-bold text-white mb-2">2005 - Carbon Fiber Innovation</h3>
+                    <p class="text-gray-300">Pioneering the use of forged carbon fiber in automotive design, revolutionizing the industry.</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <h3 class="text-xl font-bold text-white mb-2">2012 - Global Expansion</h3>
+                    <p class="text-gray-300">Opening of international showrooms in Dubai, Moscow, and Monaco to serve our growing clientele.</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <h3 class="text-xl font-bold text-white mb-2">2018 - Record-Breaking Models</h3>
+                    <p class="text-gray-300">Introduction of our Venatus line, setting new standards for performance and luxury in SUV customization.</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <h3 class="text-xl font-bold text-white mb-2">2023 - Present Day</h3>
+                    <p class="text-gray-300">Continuing to push boundaries with cutting-edge designs and performance upgrades for the world's most exclusive vehicles.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-black">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-3xl md:text-4xl font-bold text-center mb-16 uppercase tracking-wider font-cinzel">Client Testimonials</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-900 p-8 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 text-2xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6 italic">"MANSORY transformed my Rolls-Royce into a true work of art. The attention to detail is unmatched in the industry."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-gray-700 mr-4 overflow-hidden">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="text-white font-semibold">James Wilson</h4>
+                            <p class="text-gray-400 text-sm">London, UK</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-900 p-8 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 text-2xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6 italic">"The performance upgrades on my Ferrari were beyond expectations. MANSORY delivered exactly what they promised and more."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-gray-700 mr-4 overflow-hidden">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="text-white font-semibold">Sophia Chen</h4>
+                            <p class="text-gray-400 text-sm">Hong Kong</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-900 p-8 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 text-2xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6 italic">"From design consultation to final delivery, the MANSORY team provided exceptional service. My Bentley is now truly one-of-a-kind."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-gray-700 mr-4 overflow-hidden">
+                            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Client" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="text-white font-semibold">Michael Rossi</h4>
+                            <p class="text-gray-400 text-sm">Milan, Italy</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <h2 class="section-title text-3xl md:text-4xl font-bold mb-8 uppercase tracking-wider font-cinzel">Contact Us</h2>
+                    <p class="text-gray-300 mb-8 leading-relaxed">
+                        Ready to begin your MANSORY journey? Contact our team of specialists to discuss your project. 
+                        We'll guide you through every step of the customization process to create your dream vehicle.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="text-white mr-4 mt-1">
+                                <i class="fas fa-map-marker-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Headquarters</h4>
+                                <p class="text-gray-300">MANSORY Design & Holding GmbH<br>Industriestraße 11<br>95682 Brand, Germany</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-white mr-4 mt-1">
+                                <i class="fas fa-phone-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Phone</h4>
+                                <p class="text-gray-300">+49 9236 9769 0</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-white mr-4 mt-1">
+                                <i class="fas fa-envelope text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Email</h4>
+                                <p class="text-gray-300">info@mansory.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12">
+                        <h4 class="text-white font-semibold mb-4 text-xl">Follow Us</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-gray-700 transition">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-gray-700 transition">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-gray-700 transition">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-gray-700 transition">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <form class="contact-form space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-white mb-2">Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-3 rounded-lg focus:outline-none">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-white mb-2">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 rounded-lg focus:outline-none">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-white mb-2">Subject</label>
+                            <input type="text" id="subject" class="w-full px-4 py-3 rounded-lg focus:outline-none">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-white mb-2">Message</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 rounded-lg focus:outline-none"></textarea>
+                        </div>
+                        <button type="submit" class="btn-gold w-full py-3 rounded-lg uppercase font-semibold tracking-wider">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-black">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-white font-semibold text-lg mb-4 uppercase">MANSORY</h3>
+                    <p class="text-gray-400 mb-4">Redefining automotive luxury since 1989 through innovation, craftsmanship, and unparalleled attention to detail.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-white font-semibold text-lg mb-4 uppercase">Models</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Lamborghini</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Ferrari</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Rolls-Royce</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Bentley</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Mercedes-Benz</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-white font-semibold text-lg mb-4 uppercase">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Custom Design</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Performance Tuning</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Carbon Fiber Parts</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Bespoke Interiors</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Wheel Customization</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-white font-semibold text-lg mb-4 uppercase">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Our History</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Showrooms</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Careers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Press</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2023 MANSORY Design & Holding GmbH. All rights reserved.</p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-white text-sm transition">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-white text-sm transition">Terms of Service</a>
+                        <a href="#" class="text-gray-400 hover:text-white text-sm transition">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-gray-900 rounded-full flex items-center justify-center text-white opacity-0 invisible transition-all duration-300 hover:bg-gray-800">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            
+            // Back to top button
+            const backToTop = document.getElementById('back-to-top');
+            if (window.scrollY > 300) {
+                backToTop.classList.remove('opacity-0', 'invisible');
+                backToTop.classList.add('opacity-100', 'visible');
+            } else {
+                backToTop.classList.add('opacity-0', 'invisible');
+                backToTop.classList.remove('opacity-100', 'visible');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Mobile menu toggle (placeholder - would need implementation)
+        document.querySelector('.lg\\:hidden').addEventListener('click', function() {
+            alert('Mobile menu would open here in a full implementation');
+        });
+        
+        // Simple form validation (placeholder)
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Form submission would be handled here in a full implementation');
+            this.reset();
+        });
+        
+        // Animate elements when they come into view
+        const animateOnScroll = function() {
+            const elements = document.querySelectorAll('.car-card, .timeline-item, .stats-item, .gallery-item');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementPosition < windowHeight - 100) {
+                    element.classList.add('animate__animated', 'animate__fadeInUp');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
