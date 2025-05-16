@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32-removebg-preview.png">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
 </head>
 
 <body>
@@ -73,8 +73,12 @@
             <div class="row g-4">
                 <div class="col-md-4" data-aos="zoom-in">
                     <div id="height" class="card car-card">
-                        <img src="https://www.mansory.com/cdn-cgi/image/format=avif,quality=90/https://cdn.prod.website-files.com/661d6e0d2e84ef511db18f17/6818c549908c7de7cd4ffdf2_Venatus-Hero_image-001.webp"
-                            class="card-img-top" alt="Lamborghini Urus">
+                        <a href="https://www.mansory.com/cdn-cgi/image/format=avif,quality=90/https://cdn.prod.website-files.com/661d6e0d2e84ef511db18f17/6818c549908c7de7cd4ffdf2_Venatus-Hero_image-001.webp"
+                            class="glightbox" data-gallery="lambo">
+                            <img src="https://www.mansory.com/cdn-cgi/image/format=avif,quality=90/https://cdn.prod.website-files.com/661d6e0d2e84ef511db18f17/6818c549908c7de7cd4ffdf2_Venatus-Hero_image-001.webp"
+                                alt="Lamborghini Urus" class="img-fluid rounded shadow" />
+                        </a>
+
                         <div class="card-body">
                             <h5 class="text-white card-title">Lamborghini Urus Venatus</h5>
                             <p class="text-white card-text">A masterpiece of power and design – upgraded by Mansory.</p>
@@ -83,8 +87,11 @@
                 </div>
                 <div class="col-md-4" data-aos="zoom-in">
                     <div id="height" class="card car-card">
-                        <img src="https://www.mansory.com/cdn-cgi/image/format=avif,quality=90/https://cdn.prod.website-files.com/661d6e0d2e84ef511db18f17/6818c37be4384d8fa08e58ec_Product%2520overview%2520for%2520DB11%2520Cyrus-Hero_image-001.webp"
-                            class="card-img-top" alt="Aston Martin DB11">
+                        <a href="https://www.mansory.com/cdn-cgi/image/format=avif,quality=90/https://cdn.prod.website-files.com/661d6e0d2e84ef511db18f17/6818c37be4384d8fa08e58ec_Product%2520overview%2520for%2520DB11%2520Cyrus-Hero_image-001.webp"
+                            class="glightbox" data-gallery="aston">
+                            <img src="https://www.mansory.com/cdn-cgi/image/format=avif,quality=90/https://cdn.prod.website-files.com/661d6e0d2e84ef511db18f17/6818c37be4384d8fa08e58ec_Product%2520overview%2520for%2520DB11%2520Cyrus-Hero_image-001.webp"
+                                alt="Aston Martin" class="img-fluid rounded shadow" />
+                        </a>
                         <div class="card-body">
                             <h5 class="text-white card-title">Aston Martin DB11 Cyrus</h5>
                             <p class="text-white card-text">British legacy meets Mansory excellence.</p>
@@ -93,8 +100,11 @@
                 </div>
                 <div class="col-md-4" data-aos="zoom-in">
                     <div id="height" class="card car-card">
-                        <img src="https://www.mansory.com/cdn-cgi/image/format=avif,quality=90/https://cdn.prod.website-files.com/661d6e0d2e84ef511db18f17/6818c1d69c51acec9c187a33_Mercedes-Benz%2520E63%2520S%2520%2528W213%2520LCI%2529-Hero_image-001.webp"
-                            class="card-img-top" alt="Brabus E-Class">
+                            <a href="https://www.mansory.com/cdn-cgi/image/format=avif,quality=90/https://cdn.prod.website-files.com/661d6e0d2e84ef511db18f17/6818c1d69c51acec9c187a33_Mercedes-Benz%2520E63%2520S%2520%2528W213%2520LCI%2529-Hero_image-001.webp" class="glightbox"
+                            data-gallery="brabus">
+                            <img src="https://www.mansory.com/cdn-cgi/image/format=avif,quality=90/https://cdn.prod.website-files.com/661d6e0d2e84ef511db18f17/6818c1d69c51acec9c187a33_Mercedes-Benz%2520E63%2520S%2520%2528W213%2520LCI%2529-Hero_image-001.webp"
+                                alt="Brabus E-class" class="img-fluid rounded shadow" />
+                        </a>
                         <div class="card-body">
                             <h5 class="text-white card-title">Brabus E-Class 63S</h5>
                             <p class="text-white card-text">Performance meets prestige – the ultimate tuned E-Class by
@@ -126,6 +136,16 @@
             }
         });
     </script>
+    <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+    <script>
+        const lightbox = GLightbox({
+            selector: '.glightbox',
+            touchNavigation: true,
+            loop: true,
+            zoomable: true
+        });
+    </script>
+
 </body>
 
 </html>
