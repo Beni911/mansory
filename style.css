@@ -34,9 +34,20 @@ body {
     box-sizing: border-box;
     margin-bottom: 2rem;
 }
-header {
-    padding-left: 300px;
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* vagy egyéni magasság, pl. 300px */
+    text-align: center;
 }
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #about {
     padding-left: 300px;
 }
@@ -103,7 +114,7 @@ header {
     opacity: 1;
 }
 
-.hero .container {
+.hero .center {
     position: relative;
     z-index: 2;
 }
