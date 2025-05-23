@@ -34,15 +34,6 @@ body {
     box-sizing: border-box;
     margin-bottom: 2rem;
 }
-
-@media (max-width: 768px) {
-
-    header,
-    #about {
-        padding-left: 1rem;
-    }
-}
-
 header {
     padding-left: 300px;
 }
@@ -116,7 +107,7 @@ header {
     opacity: 1;
 }
 
-.hero .container {
+.hero .center {
     position: relative;
     z-index: 2;
 }
