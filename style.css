@@ -34,12 +34,23 @@ body {
     box-sizing: border-box;
     margin-bottom: 2rem;
 }
+
+@media (max-width: 768px) {
+
+    header,
+    #about {
+        padding-left: 1rem;
+    }
+}
+
 header {
     padding-left: 300px;
 }
+
 #about {
     padding-left: 300px;
 }
+
 .card:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
@@ -76,8 +87,10 @@ header {
     width: 15px;
     height: 15px;
     border-radius: 50%;
-    background: linear-gradient(45deg, #d4af37, #f9d423);
+    background: linear-gradient(135deg, #ffc107, #ff9800);
+    box-shadow: 0 0 6px rgba(255, 193, 7, 0.7);
 }
+
 
 .timeline-item::after {
     content: '';
