@@ -19,6 +19,15 @@ body {
     text-align: center;
 }
 
+@media (max-width: 576px) {
+    .hero .center img {
+        max-width: 350px;
+    }
+    .hero {
+        background-position: 15% center;
+    }
+}
+
 .card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
