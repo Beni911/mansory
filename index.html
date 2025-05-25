@@ -8,7 +8,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32-removebg-preview.png">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
@@ -22,6 +21,11 @@
                 aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <div class="d-none d-lg-flex gap-4">
+                <a class="nav-link text-white text-uppercase" href="#about">About</a>
+                <a class="nav-link text-white text-uppercase" href="#modells">Modells</a>
+                <a class="nav-link text-white text-uppercase" href="#timeline">Timeline</a>
+            </div>
             <a class="navbar-brand mx-auto fw-bold text-white" href="#"
                 style="letter-spacing: 3px; position: absolute; left: 50%; transform: translateX(-50%);">
                 <span style="font-size: 1.5rem;">&#8213;&nbsp;</span>MANSORY<span
@@ -174,68 +178,85 @@
             </div>
         </div>
     </section>
-    <footer id="footer" class="py-12 bg-black">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-                <div>
-                    <h3 class="text-white font-semibold text-lg mb-4 uppercase">MANSORY</h3>
-                    <p class="text-gray-400 mb-4">Redefining automotive luxury since 1989 through innovation,
-                        craftsmanship, and unparalleled attention to detail.</p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-white transition">
+    <footer id="footer" class="py-5 bg-black text-white">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-12 col-md-3 mb-4 mb-md-0">
+                    <h3 class="fw-semibold text-uppercase">MANSORY</h3>
+                    <p class="text-secondary"> Redefining automotive luxury since 1989 through innovation,
+                        craftsmanship, and unparalleled attention to detail. </p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-secondary text-decoration-none fs-5">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition">
+                        <a href="#" class="text-secondary text-decoration-none fs-5">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition">
+                        <a href="#" class="text-secondary text-decoration-none fs-5">
                             <i class="fab fa-youtube"></i>
                         </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition">
+                        <a href="#" class="text-secondary text-decoration-none fs-5">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
                     </div>
                 </div>
-                <div>
-                    <h3 class="text-white font-semibold text-lg mb-4 uppercase">Models</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Lamborghini</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Ferrari</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Rolls-Royce</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Bentley</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Mercedes-Benz</a></li>
+                <div class="col-6 col-md-3 mb-4 mb-md-0">
+                    <h3 class="fw-semibold text-uppercase">Models</h3>
+                    <ul class="list-unstyled">
+                        <li><a href="#"
+                                class="text-secondary text-decoration-none d-block py-1 hover-white">Lamborghini</a>
+                        </li>
+                        <li><a href="#" class="text-secondary text-decoration-none d-block py-1 hover-white">Ferrari</a>
+                        </li>
+                        <li><a href="#"
+                                class="text-secondary text-decoration-none d-block py-1 hover-white">Rolls-Royce</a>
+                        </li>
+                        <li><a href="#" class="text-secondary text-decoration-none d-block py-1 hover-white">Bentley</a>
+                        </li>
+                        <li><a href="#"
+                                class="text-secondary text-decoration-none d-block py-1 hover-white">Mercedes-Benz</a>
+                        </li>
                     </ul>
                 </div>
-                <div>
-                    <h3 class="text-white font-semibold text-lg mb-4 uppercase">Services</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Custom Design</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Performance Tuning</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Carbon Fiber Parts</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Bespoke Interiors</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Wheel Customization</a></li>
+                <div class="col-6 col-md-3 mb-4 mb-md-0">
+                    <h3 class="fw-semibold text-uppercase">Services</h3>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-secondary text-decoration-none d-block py-1 hover-white">Custom
+                                Design</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none d-block py-1 hover-white">Performance
+                                Tuning</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none d-block py-1 hover-white">Carbon
+                                Fiber Parts</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none d-block py-1 hover-white">Bespoke
+                                Interiors</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none d-block py-1 hover-white">Wheel
+                                Customization</a></li>
                     </ul>
                 </div>
-                <div>
-                    <h3 class="text-white font-semibold text-lg mb-4 uppercase">Company</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">About Us</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Our History</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Showrooms</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Careers</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Press</a></li>
+                <div class="col-12 col-md-3 mb-4 mb-md-0">
+                    <h3 class="fw-semibold text-uppercase">Company</h3>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-secondary text-decoration-none d-block py-1 hover-white">About
+                                Us</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none d-block py-1 hover-white">Our
+                                History</a></li>
+                        <li><a href="#"
+                                class="text-secondary text-decoration-none d-block py-1 hover-white">Showrooms</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none d-block py-1 hover-white">Careers</a>
+                        </li>
+                        <li><a href="#" class="text-secondary text-decoration-none d-block py-1 hover-white">Press</a>
+                        </li>
                     </ul>
                 </div>
             </div>
-            <div class="border-t border-gray-800 pt-8">
-                <div class="flex flex-col md:flex-row justify-between items-center">
-                    <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2025 MANSORY Design & Holding GmbH. All rights
-                        reserved.</p>
-                    <div class="flex space-x-6">
-                        <a href="#" class="text-gray-400 hover:text-white text-sm transition">Privacy Policy</a>
-                        <a href="#" class="text-gray-400 hover:text-white text-sm transition">Terms of Service</a>
-                        <a href="#" class="text-gray-400 hover:text-white text-sm transition">Cookie Policy</a>
-                    </div>
+            <hr class="border-secondary">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+                <p class="text-secondary mb-3 mb-md-0 small">© 2025 MANSORY Design & Holding GmbH. All rights reserved.
+                </p>
+                <div class="d-flex gap-4">
+                    <a href="#" class="text-secondary text-decoration-none small hover-white">Privacy Policy</a>
+                    <a href="#" class="text-secondary text-decoration-none small hover-white">Terms of Service</a>
+                    <a href="#" class="text-secondary text-decoration-none small hover-white">Cookie Policy</a>
                 </div>
             </div>
         </div>

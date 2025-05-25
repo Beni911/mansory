@@ -24,9 +24,14 @@ body {
     cursor: pointer;
 }
 
+.hover-white:hover {
+    color: #fff !important;
+}
+
 #timeline {
     overflow-x: hidden;
 }
+
 .hero {
     display: flex;
     justify-content: center;
