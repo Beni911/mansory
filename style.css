@@ -27,6 +27,19 @@ body {
 #timeline {
     overflow-x: hidden;
 }
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .timeline-item {
     max-width: 100%;
@@ -34,9 +47,7 @@ body {
     box-sizing: border-box;
     margin-bottom: 2rem;
 }
-header {
-    padding-left: 300px;
-}
+
 
 #about {
     padding-left: 300px;
