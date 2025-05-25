@@ -54,25 +54,25 @@
         </div>
     </header>
     <section id="about" class="py-5 bg-dark text-white">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-6" data-aos="fade-right">
-                    <h2 class="mb-4 text-uppercase" style="letter-spacing: 2px;">About MANSORY</h2>
-                    <p style="font-size: 1.05rem; line-height: 1.8;"> MANSORY stands at the pinnacle of automotive
-                        refinement, combining cutting-edge design with unmatched craftsmanship. From exotic supercars to
-                        elite SUVs, every vehicle we touch becomes a bold statement of individuality and prestige. </p>
-                    <p style="font-size: 1.05rem; line-height: 1.8;"> With over 30 years of experience, our passion for
-                        perfection is reflected in every carbon fiber detail, bespoke interior, and power upgrade.
-                        MANSORY isn't just tuning – it's transformation. </p>
-                </div>
-                <div class="col-md-6" data-aos="fade-left">
-                    <img src="https://static0.topspeedimages.com/wordpress/wp-content/uploads/jpg/202110/2021-audi-rs7-by-mansory-7.jpg"
-                        alt="Mansory Workshop" id="audi" class="img-fluid rounded-5 shadow" />
-                </div>
-            </div>
-            <div id="modells"></div>
-        </div>
-    </section>
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6" data-aos="fade-right">
+        <h2 class="mb-4 text-uppercase" style="letter-spacing: 2px;">About MANSORY</h2>
+        <p style="font-size: 1.05rem; line-height: 1.8;">
+          MANSORY stands at the pinnacle of automotive refinement, combining cutting-edge design with unmatched craftsmanship. From exotic supercars to elite SUVs, every vehicle we touch becomes a bold statement of individuality and prestige.
+        </p>
+        <p style="font-size: 1.05rem; line-height: 1.8;">
+          With over 30 years of experience, our passion for perfection is reflected in every carbon fiber detail, bespoke interior, and power upgrade. MANSORY isn't just tuning – it's transformation.
+        </p>
+      </div>
+      <div class="text-center col-md-6" data-aos="fade-left">
+        <img src="https://static0.topspeedimages.com/wordpress/wp-content/uploads/jpg/202110/2021-audi-rs7-by-mansory-7.jpg" alt="Mansory Workshop" id="audi" class="img-fluid rounded-5 shadow" />
+      </div>
+    </div>
+    <div id="modells"></div>
+  </div>
+</section>
+
     <section class="py-5">
         <div class="container">
             <h2 class="section-title text-center text-white mb-5" data-aos="fade-up" data-aos-delay="100">Featured
@@ -265,12 +265,7 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
-    </script>
-    <script>
-        AOS.init();
-
         const navbar = document.querySelector('.navbar');
-
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
                 navbar.classList.add('visible');
