@@ -15,6 +15,7 @@
 </head>
 
 <body>
+    <div id="animated-bg"></div>
     <nav class="navbar navbar-expand-lg navbar-dark px-3" style="background-color: #000;">
         <div class="container-fluid d-flex justify-content-between align-items-center">
             <button class="glass-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
@@ -61,13 +62,12 @@
                 <div class="col-md-6" data-aos="fade-right">
                     <h2 class="mb-4 text-center text-uppercase" style="letter-spacing: 2px;">About MANSORY</h2>
                     <p class="text-center" style="font-size: 1.05rem; line-height: 1.8;"> MANSORY stands at the pinnacle
-                        of automotive
-                        refinement, combining cutting-edge design with unmatched craftsmanship. From exotic supercars to
-                        elite SUVs, every vehicle we touch becomes a bold statement of individuality and prestige. </p>
+                        of automotive refinement, combining cutting-edge design with unmatched craftsmanship. From
+                        exotic supercars to elite SUVs, every vehicle we touch becomes a bold statement of individuality
+                        and prestige. </p>
                     <p class="text-center" style="font-size: 1.05rem; line-height: 1.8;"> With over 30 years of
-                        experience, our passion for
-                        perfection is reflected in every carbon fiber detail, bespoke interior, and power upgrade.
-                        MANSORY isn't just tuning – it's transformation. </p>
+                        experience, our passion for perfection is reflected in every carbon fiber detail, bespoke
+                        interior, and power upgrade. MANSORY isn't just tuning – it's transformation. </p>
                 </div>
                 <div class="text-center col-md-6" data-aos="fade-left">
                     <img src="https://static0.topspeedimages.com/wordpress/wp-content/uploads/jpg/202110/2021-audi-rs7-by-mansory-7.jpg"
@@ -234,6 +234,7 @@
     </section>
     <footer id="footer" class="py-5 bg-black text-white">
         <div class="container">
+            <hr class="border-secondary">
             <div class="row mb-4">
                 <div class="col-12 col-md-3 mb-4 mb-md-0">
                     <h3 class="fw-semibold text-uppercase">MANSORY</h3>
@@ -341,6 +342,78 @@
     <script>
         document.querySelector('.glass-toggler').addEventListener('click', function () {
             this.classList.toggle('open');
+        });
+    </script>
+    <script>
+        const bg = document.createElement('canvas');
+        bg.id = 'mansory-bg-canvas';
+        bg.style.position = 'fixed';
+        bg.style.top = 0;
+        bg.style.left = 0;
+        bg.style.width = '100vw';
+        bg.style.height = '100vh';
+        bg.style.zIndex = 0;
+        bg.style.pointerEvents = 'none';
+        bg.style.opacity = 0.55;
+        document.body.prepend(bg);
+        const ctx = bg.getContext('2d');
+        let w = window.innerWidth, h = window.innerHeight;
+        bg.width = w;
+        bg.height = h;
+        const dots = Array.from({ length: 12 }, () => ({
+            x: Math.random() * w,
+            y: Math.random() * h,
+            r: 18 + Math.random() * 18,
+            dx: (Math.random() - 0.5) * 0.12,
+            dy: (Math.random() - 0.5) * 0.12,
+            c: `rgba(${180 + Math.random() * 50},${140 + Math.random() * 80},60,0.18)`
+        }));
+        dots.push({
+            x: w - 80, y: 60, r: 28, dx: 0.04, dy: 0.03, c: 'rgba(255,220,120,0.22)'
+        });
+        dots.push({
+            x: w - 160, y: 110, r: 16, dx: -0.03, dy: 0.02, c: 'rgba(255,210,100,0.16)'
+        });
+        let mouse = { x: w / 2, y: h / 2 };
+        window.addEventListener('mousemove', e => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        });
+        function animate() {
+            ctx.clearRect(0, 0, w, h);
+            for (const d of dots) {
+                d.x += d.dx;
+                d.y += d.dy;
+                if (d.x < 0 || d.x > w) d.dx *= -1;
+                if (d.y < 0 || d.y > h) d.dy *= -1;
+                let dist = Math.hypot(d.x - mouse.x, d.y - mouse.y);
+                let alpha = d.c.replace(/,0\.[0-9]+\)/, ',' + (0.18 + 0.32 * Math.exp(-dist / 120)) + ')');
+                ctx.beginPath();
+                ctx.arc(d.x, d.y, d.r, 0, 2 * Math.PI);
+                ctx.fillStyle = alpha;
+                ctx.shadowColor = 'rgba(255,215,120,0.7)';
+                ctx.shadowBlur = 24 * (1 - Math.min(dist / 250, 1));
+                ctx.fill();
+                ctx.shadowBlur = 0;
+                ctx.save();
+                ctx.globalAlpha = 0.18;
+                ctx.strokeStyle = 'rgba(255,215,120,0.7)';
+                ctx.lineWidth = 1.2;
+                ctx.beginPath();
+                ctx.arc(d.x, d.y, d.r + 2, 0, 2 * Math.PI);
+                ctx.stroke();
+                ctx.restore();
+            }
+            requestAnimationFrame(animate);
+        }
+        animate();
+        window.addEventListener('resize', () => {
+            w = window.innerWidth; h = window.innerHeight;
+            bg.width = w; bg.height = h;
+            dots[dots.length - 2].x = w - 80;
+            dots[dots.length - 2].y = 60;
+            dots[dots.length - 1].x = w - 160;
+            dots[dots.length - 1].y = 110;
         });
     </script>
 </body>
