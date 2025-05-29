@@ -1,31 +1,74 @@
 body {
-    background-image: url('https://applescoop.org/image/wallpapers/mac/mansory-rolls-royce-white-grey-gray-most-popular-4k-5k-hd-desktop-screensavers-wallpapers-of-2025-for-apple-macbook-air-and-pro-imac-mac-mini-windows-pc-and-more-free-download-15-03-2025-1742073331-hd-wallpaper.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background: linear-gradient(135deg, #111 0%, #232323 100%) !important;
     color: #fff;
-    font-family: 'Helvetica Neue', sans-serif;
+    font-family: 'Cinzel', serif;
 }
 
 .navbar {
-    background: transparent !important;
-    box-shadow: none !important;
+    background: rgba(10,10,10,0.85) !important;
+    backdrop-filter: blur(8px);
+    border-bottom: 2px solid #bfa14a;
+    box-shadow: 0 2px 16px 0 rgba(191,161,74,0.08);
 }
 
-.hero {
-    background-image: url('https://applescoop.org/image/wallpapers/mac/mansory-rolls-royce-white-grey-gray-most-popular-4k-5k-hd-desktop-screensavers-wallpapers-of-2025-for-apple-macbook-air-and-pro-imac-mac-mini-windows-pc-and-more-free-download-15-03-2025-1742073331-hd-wallpaper.jpg') !important;
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+.navbar .nav-link {
+    color: #fff !important;
+    font-weight: 600;
+    letter-spacing: 2px;
+    transition: color 0.3s;
     position: relative;
 }
 
+.navbar .nav-link:hover, .navbar .nav-link.active {
+    color: #bfa14a !important;
+}
 
+.navbar-brand {
+    color: #bfa14a !important;
+    font-size: 2rem !important;
+    letter-spacing: 4px !important;
+    text-shadow: 0 2px 12px #bfa14a44;
+}
+
+.card {
+    background: rgba(20,20,20,0.92) !important;
+    border: 1.5px solid #bfa14a !important;
+    box-shadow: 0 4px 32px 0 rgba(191,161,74,0.10);
+    border-radius: 1.5rem !important;
+    transition: box-shadow 0.3s, border 0.3s;
+}
+.card:hover {
+    box-shadow: 0 8px 40px 0 #bfa14a55;
+    border-color: #ffd700;
+}
+
+.badge.bg-secondary {
+    background: #444 !important;
+    color: #fff !important;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: background 0.3s, color 0.3s;
+}
+.card:hover .badge.bg-secondary {
+    background: linear-gradient(90deg, #bfa14a 0%, #ffd700 100%) !important;
+    color: #222 !important;
+}
+
+.section-title, h2, h3 {
+    color: #bfa14a !important;
+    letter-spacing: 3px;
+    font-family: 'Cinzel', serif;
+}
+
+.timeline-item::before {
+    background: linear-gradient(135deg, #ffd700, #bfa14a);
+    box-shadow: 0 0 12px #bfa14a99;
+}
+.timeline-item {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 30px;
+}
 
 .card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -41,11 +84,15 @@ body {
 }
 
 .hero {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-image: url('https://applescoop.org/image/wallpapers/mac/mansory-rolls-royce-white-grey-gray-most-popular-4k-5k-hd-desktop-screensavers-wallpapers-of-2025-for-apple-macbook-air-and-pro-imac-mac-mini-windows-pc-and-more-free-download-15-03-2025-1742073331-hd-wallpaper.jpg') !important;
+    background-size: cover;
+    background-position: center;
     height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    position: relative;
 }
 
 .center {
@@ -81,12 +128,6 @@ body {
     height: 100%;
     background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%);
     z-index: 1;
-}
-
-.timeline-item {
-    position: relative;
-    padding-left: 30px;
-    margin-bottom: 30px;
 }
 
 .timeline-item::before {
