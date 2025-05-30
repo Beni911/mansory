@@ -5,10 +5,10 @@ body {
 }
 
 .navbar {
-    background: rgba(10,10,10,0.85) !important;
+    background: rgba(10, 10, 10, 0.85) !important;
     backdrop-filter: blur(8px);
     border-bottom: 2px solid #bfa14a;
-    box-shadow: 0 2px 16px 0 rgba(191,161,74,0.08);
+    box-shadow: 0 2px 16px 0 rgba(191, 161, 74, 0.08);
 }
 
 .navbar .nav-link {
@@ -19,7 +19,8 @@ body {
     position: relative;
 }
 
-.navbar .nav-link:hover, .navbar .nav-link.active {
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
     color: #bfa14a !important;
 }
 
@@ -31,15 +32,104 @@ body {
 }
 
 .card {
-    background: rgba(20,20,20,0.92) !important;
-    border: 1.5px solid #bfa14a !important;
-    box-shadow: 0 4px 32px 0 rgba(191,161,74,0.10);
-    border-radius: 1.5rem !important;
-    transition: box-shadow 0.3s, border 0.3s;
+    background: rgba(20, 20, 20, 0.92) !important;
+    border: 1.5px solid transparent !important;
+    border-image: linear-gradient(120deg, #bfa14a 10%, #ffd700 90%) 1;
+    box-shadow: 0 6px 32px 0 rgba(191, 161, 74, 0.18), 0 1.5px 16px 0 #bfa14a33;
+    border-radius: 1.7rem !important;
+    transition: box-shadow 0.35s, border 0.35s, transform 0.35s;
+    overflow: hidden;
+    position: relative;
+    backdrop-filter: blur(6px);
 }
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    left: -40%;
+    width: 180%;
+    height: 180%;
+    background: radial-gradient(circle at 60% 40%, rgba(255, 215, 100, 0.08) 0%, rgba(191, 161, 74, 0.04) 60%, transparent 100%);
+    z-index: 0;
+    pointer-events: none;
+    transition: opacity 0.4s;
+    opacity: 0.7;
+}
+
 .card:hover {
-    box-shadow: 0 8px 40px 0 #bfa14a55;
-    border-color: #ffd700;
+    box-shadow: 0 12px 48px 0 #ffd70055, 0 2px 32px 0 #bfa14a99;
+    border-image: linear-gradient(120deg, #ffd700 10%, #bfa14a 90%) 1;
+    transform: translateY(-6px) scale(1.035);
+}
+
+.card:hover::before {
+    opacity: 1;
+    background: radial-gradient(circle at 60% 40%, rgba(255, 215, 100, 0.16) 0%, rgba(191, 161, 74, 0.10) 60%, transparent 100%);
+}
+
+.card .card-title {
+    color: #ffd700;
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 12px #bfa14a33;
+    z-index: 1;
+    position: relative;
+}
+
+.card .card-text,
+.card .text-light {
+    color: #e6e1d0 !important;
+    font-family: 'Cinzel', serif;
+    font-size: 1.01rem;
+    z-index: 1;
+    position: relative;
+}
+
+.card .badge.bg-secondary {
+    background: #222 !important;
+    color: #ffd700 !important;
+    border: 1px solid #bfa14a;
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    box-shadow: 0 0 8px #bfa14a33;
+    transition: background 0.3s, color 0.3s, border 0.3s;
+    z-index: 1;
+    position: relative;
+}
+
+.card:hover .badge.bg-secondary {
+    background: linear-gradient(90deg, #bfa14a 0%, #ffd700 100%) !important;
+    color: #222 !important;
+    border: 1px solid #ffd700;
+    box-shadow: 0 0 16px #ffd70099;
+}
+
+.card-img-top {
+    border-radius: 1.2rem 1.2rem 0 0 !important;
+    box-shadow: 0 4px 24px #bfa14a22;
+    object-fit: cover;
+    min-height: 220px;
+    max-height: 260px;
+    transition: filter 0.3s;
+    filter: brightness(0.98) saturate(1.08);
+    z-index: 1;
+    position: relative;
+}
+
+.card:hover .card-img-top {
+    filter: brightness(1.04) saturate(1.18) drop-shadow(0 0 16px #ffd70055);
+}
+
+.card-body {
+    position: relative;
+    z-index: 2;
+    background: transparent;
+    padding-bottom: 1.2rem;
 }
 
 .badge.bg-secondary {
@@ -49,12 +139,15 @@ body {
     letter-spacing: 1px;
     transition: background 0.3s, color 0.3s;
 }
+
 .card:hover .badge.bg-secondary {
     background: linear-gradient(90deg, #bfa14a 0%, #ffd700 100%) !important;
     color: #222 !important;
 }
 
-.section-title, h2, h3 {
+.section-title,
+h2,
+h3 {
     color: #bfa14a !important;
     letter-spacing: 3px;
     font-family: 'Cinzel', serif;
@@ -64,6 +157,7 @@ body {
     background: linear-gradient(135deg, #ffd700, #bfa14a);
     box-shadow: 0 0 12px #bfa14a99;
 }
+
 .timeline-item {
     position: relative;
     padding-left: 30px;
