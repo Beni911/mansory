@@ -485,8 +485,97 @@ footer,
     .glass-toggler .bar {
         background: #fff !important;
     }
+
+    #scrollTopBtn {
+        display: none !important;
+    }
 }
 
 #border {
     border: 1px solid #ccc !important;
+}
+
+[data-aos] {
+    transition-property: opacity, transform, box-shadow;
+    transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+    will-change: opacity, transform;
+}
+
+.card[data-aos] {
+    transition-duration: 1.1s;
+    box-shadow: 0 4px 32px #bfa14a22, 0 1.5px 8px #0008;
+}
+
+.timeline-item[data-aos] {
+    transition-duration: 1.2s;
+    box-shadow: 0 2px 18px #bfa14a22, 0 1px 4px #0006;
+}
+
+.section-title[data-aos],
+h2[data-aos] {
+    transition-duration: 1.2s;
+    letter-spacing: 2.5px;
+}
+
+footer a.text-secondary.text-decoration-none,
+footer a.text-secondary.text-decoration-none.small {
+    position: relative;
+    transition: color 0.25s;
+}
+
+footer a.text-secondary.text-decoration-none:hover,
+footer a.text-secondary.text-decoration-none.small:hover {
+    color: #ffd700 !important;
+}
+
+footer a.text-secondary.text-decoration-none::after,
+footer a.text-secondary.text-decoration-none.small::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2px;
+    height: 2px;
+    background: linear-gradient(90deg, #bfa14a, #ffd700 80%);
+    border-radius: 2px;
+    transform: scaleX(0);
+    transition: transform 0.3s cubic-bezier(.4, 0, .2, 1);
+}
+
+footer a.text-secondary.text-decoration-none:hover::after,
+footer a.text-secondary.text-decoration-none.small:hover::after {
+    transform: scaleX(1);
+}
+
+#scrollTopBtn {
+    animation: scrollBtnFadeIn 0.6s cubic-bezier(.4, 0, .2, 1);
+    transition: box-shadow 0.3s, background 0.3s, opacity 0.3s;
+}
+
+#scrollTopBtn:hover {
+    background: linear-gradient(90deg, #ffd700, #bfa14a 80%);
+    box-shadow: 0 8px 32px #ffd70099, 0 2px 12px #bfa14a88;
+    transform: scale(1.08) rotate(-6deg);
+}
+
+#scrollTopBtn i {
+    transition: transform 0.4s cubic-bezier(.4, 0, .2, 1), color 0.3s;
+}
+
+#scrollTopBtn:hover i {
+    color: #bfa14a;
+    transform: translateY(-4px) scale(1.15);
+}
+
+@keyframes scrollBtnFadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.7) translateY(40px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
 }

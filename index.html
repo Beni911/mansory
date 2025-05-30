@@ -60,7 +60,10 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-6" data-aos="fade-right">
-                    <h2 class="mb-4 text-center text-uppercase" style="letter-spacing: 2px;">About MANSORY</h2>
+                    <h2 class="mb-4 text-center text-uppercase" style="letter-spacing: 2px;">About MANSORY <span
+                            class="d-block mx-auto mt-2"
+                            style="height:4px; width:90px; background:linear-gradient(90deg,#bfa14a,#ffd700 80%); border-radius:2px; box-shadow:0 0 12px #bfa14a99; animation: shine 2s infinite alternate;"></span>
+                    </h2>
                     <p class="text-center" style="font-size: 1.05rem; line-height: 1.8;"> MANSORY stands at the pinnacle
                         of automotive refinement, combining cutting-edge design with unmatched craftsmanship. From
                         exotic supercars to elite SUVs, every vehicle we touch becomes a bold statement of individuality
@@ -79,8 +82,21 @@
     </section>
     <section class="py-5">
         <div class="container">
-            <h2 class="section-title text-center text-white mb-5" data-aos="fade-up" data-aos-delay="100">Featured
-                Models</h2>
+            <h2 class="section-title text-center text-white mb-5 position-relative" data-aos="fade-up"
+                data-aos-delay="100"> Featured Models <span class="d-block mx-auto mt-2"
+                    style="height:4px; width:90px; background:linear-gradient(90deg,#bfa14a,#ffd700 80%); border-radius:2px; box-shadow:0 0 12px #bfa14a99; animation: shine 2s infinite alternate;"></span>
+            </h2>
+            <style>
+                @keyframes shine {
+                    0% {
+                        filter: brightness(1) drop-shadow(0 0 0 #ffd700);
+                    }
+
+                    100% {
+                        filter: brightness(1.3) drop-shadow(0 0 12px #ffd700);
+                    }
+                }
+            </style>
             <div class="row g-4">
                 <div class="col-md-4" data-aos="zoom-in">
                     <div id="border" class="card bg-dark text-white border-0 shadow-lg rounded-4 overflow-hidden">
@@ -147,7 +163,21 @@
     <section id="timeline" class="py-20 bg-dark">
         <div class="container mx-auto px-4" style="overflow-x: hidden;">
             <h2 class="section-title text-3xl md:text-4xl font-bold text-center mb-16 uppercase tracking-wider font-cinzel text-white"
-                data-aos="fade-up" data-aos-delay="40" data-aos-duration="1000"> Our History </h2>
+                data-aos="fade-up" data-aos-delay="40" data-aos-duration="1000"> Our History <span
+                    class="d-block mx-auto mt-2"
+                    style="height:4px; width:90px; background:linear-gradient(90deg,#bfa14a,#ffd700 80%); border-radius:2px; box-shadow:0 0 12px #bfa14a99; animation: shine 2s infinite alternate;"></span>
+            </h2>
+            <style>
+                @keyframes shine {
+                    0% {
+                        filter: brightness(1) drop-shadow(0 0 0 #ffd700);
+                    }
+
+                    100% {
+                        filter: brightness(1.3) drop-shadow(0 0 12px #ffd700);
+                    }
+                }
+            </style>
             <div class="max-w-3xl mx-auto">
                 <div class="timeline-item" data-aos="fade-right" data-aos-delay="50">
                     <h3 class="text-xl font-bold text-white mb-2">1989 - Foundation</h3>
@@ -185,7 +215,9 @@
     <section id="find-dealer" class="py-5 bg-black text-white">
         <div class="container">
             <h2 class="text-center text-uppercase mb-5" data-aos="fade-up" data-aos-delay="100"
-                style="letter-spacing: 2px;"> Find a Dealer </h2>
+                style="letter-spacing: 2px;"> Find a Dealer <span class="d-block mx-auto mt-2"
+                    style="height:4px; width:90px; background:linear-gradient(90deg,#bfa14a,#ffd700 80%); border-radius:2px; box-shadow:0 0 12px #bfa14a99; animation: shine 2s infinite alternate;"></span>
+            </h2>
             <div class="row g-4">
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
                     <div id="border" class="card bg-dark text-white border-0 rounded-4 shadow overflow-hidden h-100">
@@ -316,6 +348,10 @@
             </div>
         </div>
     </footer>
+    <button id="scrollTopBtn" aria-label="Scroll to top"
+        style="position:fixed;bottom:32px;right:32px;z-index:999;background:linear-gradient(90deg,#bfa14a,#ffd700 80%);color:#222;border:none;border-radius:50%;width:52px;height:52px;box-shadow:0 4px 24px #bfa14a55;display:none;align-items:center;justify-content:center;transition:opacity 0.3s;">
+        <i class="fas fa-arrow-up" style="font-size:1.5rem;"></i>
+    </button>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
@@ -416,6 +452,20 @@
             dots[dots.length - 1].y = 110;
         });
     </script>
+    <script>
+        const scrollBtn = document.getElementById('scrollTopBtn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 200) {
+                scrollBtn.style.display = 'flex';
+                scrollBtn.style.opacity = '1';
+            } else {
+                scrollBtn.style.opacity = '0';
+                setTimeout(() => { scrollBtn.style.display = 'none'; }, 300);
+            }
+        });
+        scrollBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
 </body>
-
 </html>
